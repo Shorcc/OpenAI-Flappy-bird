@@ -1,0 +1,44 @@
+body {
+    overflow: hidden;
+}
+#game-area {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    background-color: #87CEEB;
+    margin: 50px auto;
+  }
+  
+  #bird {
+    width: 50px;
+    height: 50px;
+    background-color: #FFFF00;
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    transition: 50ms ease-in;
+  }
+  
+  #pipe-top {
+    --rightpos: 0;
+    width: 50px;
+    height: 110px;
+ 
+    position: absolute;
+    top: 0;
+    right: var(--rightpos);
+    background-color: #7CFC00;
+    transition: 2s linear;
+  }
+ 
+  #pipe-bottom {
+    --rightpos: 0;
+    width: 50px;
+    height: 110px;
+    background-color: #7CFC00;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    transition: 2s linear;
+
+  }
