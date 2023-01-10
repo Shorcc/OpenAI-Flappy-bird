@@ -20,15 +20,14 @@ body {
   }
   
   #pipe-top {
-    --rightpos: 0;
     width: 50px;
     height: 110px;
  
     position: absolute;
     top: 0;
-    right: var(--rightpos);
+    right: 0px;
     background-color: #7CFC00;
-    transition: 2s linear;
+    transition: 1.5s linear;
   }
  
   #pipe-bottom {
@@ -39,6 +38,6 @@ body {
     position: absolute;
     right: 0px;
     bottom: 0px;
-    transition: 2s linear;
+    transition: 1.5s linear;
 
   }

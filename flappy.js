@@ -43,7 +43,7 @@ setInterval(updateGame, 1000/60);
 
 
 var rpos = 600
-setInterval(placePipe, 1250);
+setInterval(placePipe, 1000);
 function placePipe() {
     newpipe1 = document.createElement("div")
     newpipe1.setAttribute("id", "pipe-bottom")
@@ -60,5 +60,8 @@ function updateGame() {
     bird.style.top = birdTop + "px"
     newpipe1.style.right = rpos + "px"
     newpipe2.style.right = rpos + "px"
+    if (bird.style.top === 450 + "px") {
+      bird.remove()
+    }
   
 }
