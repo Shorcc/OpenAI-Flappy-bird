@@ -4,6 +4,7 @@ var pipeBottom1 = document.getElementById("1bottom");
 var pipeTop2 = document.getElementById("top2");
 var pipeBottom2 = document.getElementById("bottom2");
 var gameArea = document.getElementById("game-area");
+var pointText = document.getElementById("point-counter")
 
 // variables for the bird's position
 var birdTop = 100;
@@ -51,7 +52,7 @@ function updateGame() {
     birdTop += 5;
     bird.style.top = birdTop + "px"
     if (bird.style.top === 450 + "px") {
-      bird.remove()
+      stopGame();
     }
   movePipe1()
   movePipe2()
@@ -62,7 +63,7 @@ function movePipe1() {
   pipeBottom1.style.right = rpos1 + "px"
   pipeTop1.style.right = rpos1 + "px"
   rpos1 +=3;
-  if (rpos1 >= 600) {
+  if (rpos1 >= 550) {
     pipeBottom1.style.transitionDuration = "0s"
     pipeTop1.style.transitionDuration = "0s"
     rpos1 = -20
@@ -71,13 +72,13 @@ function movePipe1() {
     pipeBottom1.style.height = 70 + randomposbot1 + "px"
     pipeTop1.style.height = 70 + randompostop1 + "px"
   }
-  console.log(rpos1)
+  
 }
 function movePipe2() {
   pipeBottom2.style.right = rpos2 + "px"
   pipeTop2.style.right = rpos2 + "px"
   rpos2 +=3;
-  if (rpos2 >= 600) {
+  if (rpos2 >= 550) {
     pipeBottom2.style.transitionDuration = "0s"
     pipeTop2.style.transitionDuration = "0s"
     rpos2 = -20
@@ -87,4 +88,55 @@ function movePipe2() {
     pipeTop2.style.height = 70 + randompostop2 + "px"
   }
 }
-var randompos1 = 0;
+checkForCollisions();
+function checkForCollisions() {
+  setInterval(() => {
+      let obstaclePositions = pipeBottom1.getBoundingClientRect();
+      let characterPositions = bird.getBoundingClientRect();
+      let rightOverlap = (characterPositions.right >= obstaclePositions.left && characterPositions.right <= obstaclePositions.right);
+      let bottomOverlap = (characterPositions.bottom >= obstaclePositions.top);
+      if (rightOverlap && bottomOverlap) {
+          stopGame();
+          
+      }
+
+      let obstaclePositions2 = pipeTop1.getBoundingClientRect();
+      let bottomOverlap2 = (characterPositions.top <= obstaclePositions2.bottom);
+      let rightOverlap2 = (characterPositions.right >= obstaclePositions2.left && characterPositions.right <= obstaclePositions2.right); 
+      if (rightOverlap2 && bottomOverlap2) {
+        stopGame();
+      }
+ 
+      let obstaclePositions3 = pipeBottom2.getBoundingClientRect();
+      let bottomOverlap3 = (characterPositions.bottom >= obstaclePositions3.top);
+      let rightOverlap3 = (characterPositions.right >= obstaclePositions3.left && characterPositions.right <= obstaclePositions3.right);
+      if (rightOverlap3 && bottomOverlap3) {
+        stopGame();
+      }
+      let leftoverlap3 = (characterPositions.left >= obstaclePositions.right && characterPositions.bottom >= obstaclePositions.top)
+
+      let obstaclePositions4 = pipeTop2.getBoundingClientRect();
+      let bottomOverlap4 = (characterPositions.top <= obstaclePositions4.bottom);
+      let rightOverlap4 = (characterPositions.right >= obstaclePositions4.left && characterPositions.right <= obstaclePositions4.right)
+      if (rightOverlap4 && bottomOverlap4) {
+        stopGame();
+      }
+
+  }, 40)
+
+};
+start()
+function stopGame() {
+  bird.remove();
+  clearInterval(interval1)
+}
+function addpoints()  {
+  points += 1;
+  pointText.textContent = points
+  console.log(points)
+}
+function start() {
+interval1 = setInterval(addpoints, 1000)
+}
+
+var points = 0;
