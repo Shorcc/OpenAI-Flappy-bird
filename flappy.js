@@ -1,6 +1,8 @@
 var bird = document.getElementById("bird");
-var pipeTop = document.getElementById("pipe-top");
-var pipeBottom = document.getElementById("pipe-bottom");
+var pipeTop1 = document.getElementById("1top");
+var pipeBottom1 = document.getElementById("1bottom");
+var pipeTop2 = document.getElementById("top2");
+var pipeBottom2 = document.getElementById("bottom2");
 var gameArea = document.getElementById("game-area");
 
 // variables for the bird's position
@@ -43,25 +45,46 @@ setInterval(updateGame, 1000/60);
 
 
 var rpos = 600
-setInterval(placePipe, 1000);
-function placePipe() {
-    newpipe1 = document.createElement("div")
-    newpipe1.setAttribute("id", "pipe-bottom")
-    newpipe2 = document.createElement("div")
-    newpipe2.setAttribute("id", "pipe-top")
-    gameArea.append(newpipe1);
-    gameArea.append(newpipe2);
-    newpipe1.style.right = -50 + "px"
-    newpipe2.style.right = -50 + "px"
-}
+
 
 function updateGame() {
     birdTop += 5;
     bird.style.top = birdTop + "px"
-    newpipe1.style.right = rpos + "px"
-    newpipe2.style.right = rpos + "px"
     if (bird.style.top === 450 + "px") {
       bird.remove()
     }
-  
+  movePipe1()
+  movePipe2()
 }
+var rpos1 = 0
+var rpos2 = -300
+function movePipe1() {
+  pipeBottom1.style.right = rpos1 + "px"
+  pipeTop1.style.right = rpos1 + "px"
+  rpos1 +=3;
+  if (rpos1 >= 600) {
+    pipeBottom1.style.transitionDuration = "0s"
+    pipeTop1.style.transitionDuration = "0s"
+    rpos1 = -20
+    var randompostop1 = Math.floor(Math.random()*80)
+    var randomposbot1 = Math.floor(Math.random()* 80)
+    pipeBottom1.style.height = 70 + randomposbot1 + "px"
+    pipeTop1.style.height = 70 + randompostop1 + "px"
+  }
+  console.log(rpos1)
+}
+function movePipe2() {
+  pipeBottom2.style.right = rpos2 + "px"
+  pipeTop2.style.right = rpos2 + "px"
+  rpos2 +=3;
+  if (rpos2 >= 600) {
+    pipeBottom2.style.transitionDuration = "0s"
+    pipeTop2.style.transitionDuration = "0s"
+    rpos2 = -20
+    var randompostop2 = Math.floor(Math.random()*80)
+    var randomposbot2 = Math.floor(Math.random()*80)
+    pipeBottom2.style.height = 70 + randomposbot2 + "px"
+    pipeTop2.style.height = 70 + randompostop2 + "px"
+  }
+}
+var randompos1 = 0;
