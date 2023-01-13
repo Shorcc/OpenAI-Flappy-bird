@@ -9,6 +9,8 @@ body {
     margin: 50px auto;
     overflow: hidden;
     text-align: center;
+
+    
   }
   
   #bird {
@@ -56,11 +58,19 @@ body {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:  85px;
+    text-align: center;
     
     z-index: 1;
     position: fixed;
     right: 43%;
-    transition: 1s linear;
+    
     opacity: 0;
     
   }
+#restartbtn {
+  position: relative;
+  height: 50px;
+  width: 100px;
+  top: 70%;
+  visibility: hidden;
+}

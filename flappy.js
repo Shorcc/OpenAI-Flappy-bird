@@ -6,6 +6,7 @@ var pipeBottom2 = document.getElementById("bottom2");
 var gameArea = document.getElementById("game-area");
 var pointText = document.getElementById("point-counter")
 var gameoverText = document.getElementById("gameoverText");
+var restartbtn = document.getElementById("restartbtn")
 
 // variables for the bird's position
 var birdTop = 100;
@@ -131,6 +132,7 @@ function stopGame() {
   bird.remove();
   clearInterval(interval1)
   gameoverText.style.opacity = 1;
+  restartbtn.style.visibility = "visible"
 }
 function addpoints()  {
   points += 1;
@@ -142,3 +144,6 @@ interval1 = setInterval(addpoints, 1000)
 }
 
 var points = 0;
+function restart() {
+  location.reload();
+}
