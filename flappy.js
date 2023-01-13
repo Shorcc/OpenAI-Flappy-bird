@@ -51,7 +51,7 @@ var rpos = 600
 
 
 function updateGame() {
-    birdTop += 5;
+    birdTop += 3;
     bird.style.top = birdTop + "px"
     if (bird.style.top === 450 + "px") {
       stopGame();
