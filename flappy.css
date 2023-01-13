@@ -43,13 +43,7 @@ body {
     
 
   }
-  #top2{
-    background-color: black;
-  }
-  
-  #bottom2{
-    background-color: black;
-  }
+
   #point-counter {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -57,5 +51,16 @@ body {
     left: 48%;
     z-index: 1;
     position: fixed;
- 
+  }
+  #gameoverText {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:  85px;
+    
+    z-index: 1;
+    position: fixed;
+    right: 43%;
+    transition: 1s linear;
+    opacity: 0;
+    
   }
