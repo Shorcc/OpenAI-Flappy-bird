@@ -7,8 +7,8 @@ var gameArea = document.getElementById("game-area");
 var pointText = document.getElementById("point-counter")
 var gameoverText = document.getElementById("gameoverText");
 var restartbtn = document.getElementById("restartbtn")
-var jumpAud = new Audio("hop.wav");
-var music = new Audio("Flappy.wav")
+var jumpAud = new Audio("assets/hop.wav");
+var music = new Audio("assets/Flappy.wav")
 var mutebtn = document.getElementById("mute")
 
 // variables for the bird's position
@@ -150,7 +150,7 @@ function stopGame() {
   gameArea.classList.remove("scroll");
   birdTop = 75
   gameArea.style.backgroundColor = "#87CEEB"
-  gameArea.style.backgroundImage = "url('dead.png')";
+  gameArea.style.backgroundImage = "url('assets/dead.png')";
   music.pause();
   music.currentTime = 0;
 }
@@ -163,7 +163,7 @@ bird.style.transitionDuration = 75 + "ms"
 interval1 = setInterval(addpoints, 1000)
 interval2 = setInterval(updateGame, 1000/60)
 gameArea.classList.add("scroll");
-gameArea.style.backgroundImage = "url('back.png')"
+gameArea.style.backgroundImage = "url('assets/back.png')"
 music.loop = true 
 music.play()
 }
