@@ -21,17 +21,7 @@ var pipeSpeed = 3;
 document.onkeydown = function(event) {
   if (event.keyCode === 32) {
     // jump when the space bar is pressed
-    
-        birdTop -= 20;
-        bird.style.top = birdTop + "px";
-        birdTop -= 20;
-        bird.style.top = birdTop + "px";
-        birdTop -= 20;
-        bird.style.top = birdTop + "px";
-        birdTop -= 20;
-        bird.style.top = birdTop + "px";
-        birdTop -= 20;
-        bird.style.top = birdTop + "px";
+    jump()
         
 
    
@@ -39,20 +29,27 @@ document.onkeydown = function(event) {
 
 };
 document.onmousedown = function(e) {
-  console.log("clicked")
-  birdTop -= 20;
-  bird.style.top = birdTop + "px";
-  birdTop -= 20;
-  bird.style.top = birdTop + "px";
-  birdTop -= 20;
-  bird.style.top = birdTop + "px";
-  birdTop -= 20;
-  bird.style.top = birdTop + "px";
-  birdTop -= 20;
-  bird.style.top = birdTop + "px";
-  
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    return
+   } else {
+    jump();
+   }
 }
-
+function jump() {
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdrotation = -40
+}
+document.addEventListener("touchstart", jump)
+  
 // update the game 60 times per second
 setInterval(updateGame, 1000/60);
 
@@ -62,7 +59,7 @@ setInterval(updateGame, 1000/60);
 
 
 var rpos = 600
-
+var birdrotation = 0;
 
 function updateGame() {
     birdTop += 3;
@@ -72,6 +69,12 @@ function updateGame() {
     }
   movePipe1()
   movePipe2()
+  bird.style.transform = "rotate(" + birdrotation + "deg" + ")"
+  birdrotation += 2
+  if (birdrotation >= 70) {
+    birdrotation = 70
+
+  }
 }
 var rpos1 = 0
 var rpos2 = -300
@@ -87,6 +90,7 @@ function movePipe1() {
     var randomposbot1 = Math.floor(Math.random()* 80)
     pipeBottom1.style.height = 70 + randomposbot1 + "px"
     pipeTop1.style.height = 70 + randompostop1 + "px"
+    // pipeTop1.style.backgroundPosition ="50%" +  (20 -randompostop1)   + "px"
   }
   
 }
