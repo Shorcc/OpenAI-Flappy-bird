@@ -53,6 +53,7 @@ body {
     left: 48%;
     z-index: 1;
     position: fixed;
+    user-select: none;
   }
   #gameoverText {
     color: white;
@@ -65,6 +66,7 @@ body {
     right: 43%;
     
     opacity: 0;
+    user-select: none;
     
   }
 #restartbtn {

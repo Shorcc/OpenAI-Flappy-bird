@@ -36,8 +36,22 @@ document.onkeydown = function(event) {
 
    
   }
-};
 
+};
+document.onmousedown = function(e) {
+  console.log("clicked")
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  birdTop -= 20;
+  bird.style.top = birdTop + "px";
+  
+}
 
 // update the game 60 times per second
 setInterval(updateGame, 1000/60);
