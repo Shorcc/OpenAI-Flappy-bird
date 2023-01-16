@@ -29,7 +29,6 @@ document.onkeydown = function(event) {
   if (event.key === "m") {
     mute();
   }
-
 };
 document.onmousedown = function(e) {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -69,13 +68,9 @@ function updateGame() {
   movePipe2()
   bird.style.transform = "rotate(" + birdrotation + "deg" + ")"
   birdrotation += 2
-  if (birdrotation >= 70) {
-    birdrotation = 70
-
+  if (birdrotation >= 65) {
+    birdrotation = 65
   }
- 
- 
-  
 }
 var rpos1 = 0
 var rpos2 = -300
@@ -91,9 +86,7 @@ function movePipe1() {
     var randomposbot1 = Math.floor(Math.random()* 80)
     pipeBottom1.style.height = 70 + randomposbot1 + "px"
     pipeTop1.style.height = 70 + randompostop1 + "px"
-  
   }
-  
 }
 function movePipe2() {
   pipeBottom2.style.right = rpos2 + "px"
@@ -154,7 +147,6 @@ function stopGame() {
   restartbtn.style.visibility = "visible"
   clearInterval(interval2)
   bird.style.transitionDuration = 0 +"s"
-  
   gameArea.classList.remove("scroll");
   birdTop = 75
   gameArea.style.backgroundColor = "#87CEEB"
@@ -172,9 +164,10 @@ interval1 = setInterval(addpoints, 1000)
 interval2 = setInterval(updateGame, 1000/60)
 gameArea.classList.add("scroll");
 gameArea.style.backgroundImage = "url('back.png')"
-music.play()
 music.loop = true 
+music.play()
 }
+
 
 var points = 0;
 function restart() {

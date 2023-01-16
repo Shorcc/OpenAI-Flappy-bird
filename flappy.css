@@ -1,6 +1,7 @@
 body {
     overflow: hidden;
 }
+
 #game-area {
     width: 500px;
     height: 400px;
@@ -10,23 +11,18 @@ body {
     margin: 50px auto;
     overflow: hidden;
     text-align: center;
-    
-
-    
   }
   
   #bird {
     width: 50px;
     height: 50px;
-   /* background-color: #FFFF00; */
     position: absolute;
-    
     left: 50px;
     transition: 75ms linear;
     background: url("flappy\ sprite.png");
     background-position: center; 
   }
-  
+
   .pipe-top { 
     width: 50px;
     height: 110px;
@@ -40,11 +36,7 @@ body {
     background-repeat: no-repeat;
     transform: scaleY(-1);
     border-radius: 10px 10px 0px 0px;
-   
   }
-  
-  
- 
   .pipe-bottom {
     width: 50px;
     height: 110px;
@@ -56,7 +48,6 @@ body {
     background-position: center -39px;
     background-repeat: no-repeat;
     border-radius: 10px 10px 0px 0px;
-
   }
 
   #point-counter {
@@ -81,7 +72,6 @@ body {
     -webkit-text-stroke-width: 4px;
     -webkit-text-stroke-color: black;
      pointer-events: none;
-    
   }
   
 #restartbtn {
@@ -101,22 +91,24 @@ body {
   user-select: none;
  font-size: 20px;
 }
+
 @font-face {
   font-family: pixelFont;
   src: url("upheavtt.ttf");
 }
 @-webkit-keyframes scroll-left {
   0% {
-      
       background-position: -100%
   }
   100% {
       background-position: 100%;
   }
 }
+
 .scroll {
   animation: scroll-left 15s linear infinite;
 }
+
 #mute {
   height: 40px;
   width: 85px ;
