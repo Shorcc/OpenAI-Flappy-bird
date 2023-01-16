@@ -7,6 +7,9 @@ var gameArea = document.getElementById("game-area");
 var pointText = document.getElementById("point-counter")
 var gameoverText = document.getElementById("gameoverText");
 var restartbtn = document.getElementById("restartbtn")
+var jumpAud = new Audio("hop.wav");
+var music = new Audio("Flappy.wav")
+var mutebtn = document.getElementById("mute")
 
 // variables for the bird's position
 var birdTop = 100;
@@ -19,12 +22,12 @@ var pipeSpeed = 3;
 
 // listen for key presses
 document.onkeydown = function(event) {
-  if (event.keyCode === 32) {
+  if (event.key === " " || event.key === "ArrowUp" || event.key === "w"){
     // jump when the space bar is pressed
     jump()
-        
-
-   
+  }
+  if (event.key === "m") {
+    mute();
   }
 
 };
@@ -47,16 +50,11 @@ function jump() {
   birdTop -= 20;
   bird.style.top = birdTop + "px";
   birdrotation = -40
+  jumpAud.currentTime = 0;
+  jumpAud.play()
 }
+
 document.addEventListener("touchstart", jump)
-  
-// update the game 60 times per second
-setInterval(updateGame, 1000/60);
-
-
-
-
-
 
 var rpos = 600
 var birdrotation = 0;
@@ -75,33 +73,36 @@ function updateGame() {
     birdrotation = 70
 
   }
+ 
+ 
+  
 }
 var rpos1 = 0
 var rpos2 = -300
 function movePipe1() {
   pipeBottom1.style.right = rpos1 + "px"
   pipeTop1.style.right = rpos1 + "px"
-  rpos1 +=3;
+  rpos1 +=4;
   if (rpos1 >= 550) {
     pipeBottom1.style.transitionDuration = "0s"
     pipeTop1.style.transitionDuration = "0s"
-    rpos1 = -20
+    rpos1 = -50
     var randompostop1 = Math.floor(Math.random()*80)
     var randomposbot1 = Math.floor(Math.random()* 80)
     pipeBottom1.style.height = 70 + randomposbot1 + "px"
     pipeTop1.style.height = 70 + randompostop1 + "px"
-    // pipeTop1.style.backgroundPosition ="50%" +  (20 -randompostop1)   + "px"
+  
   }
   
 }
 function movePipe2() {
   pipeBottom2.style.right = rpos2 + "px"
   pipeTop2.style.right = rpos2 + "px"
-  rpos2 +=3;
+  rpos2 +=4;
   if (rpos2 >= 550) {
     pipeBottom2.style.transitionDuration = "0s"
     pipeTop2.style.transitionDuration = "0s"
-    rpos2 = -20
+    rpos2 = -50
     var randompostop2 = Math.floor(Math.random()*80)
     var randomposbot2 = Math.floor(Math.random()*80)
     pipeBottom2.style.height = 70 + randomposbot2 + "px"
@@ -147,21 +148,64 @@ function checkForCollisions() {
 };
 start()
 function stopGame() {
-  bird.remove();
+  bird.style.visibility = "hidden";
   clearInterval(interval1)
   gameoverText.style.opacity = 1;
   restartbtn.style.visibility = "visible"
+  clearInterval(interval2)
+  bird.style.transitionDuration = 0 +"s"
+  
+  gameArea.classList.remove("scroll");
+  birdTop = 75
+  gameArea.style.backgroundColor = "#87CEEB"
+  gameArea.style.backgroundImage = "url('dead.png')";
+  music.pause();
+  music.currentTime = 0;
 }
 function addpoints()  {
   points += 1;
   pointText.textContent = points
-  console.log(points)
 }
 function start() {
+bird.style.transitionDuration = 75 + "ms"
 interval1 = setInterval(addpoints, 1000)
+interval2 = setInterval(updateGame, 1000/60)
+gameArea.classList.add("scroll");
+gameArea.style.backgroundImage = "url('back.png')"
+music.play()
+music.loop = true 
 }
 
 var points = 0;
 function restart() {
-  location.reload();
+start();
+points = 0;
+bird.style.visibility = "visible"
+restartbtn.style.visibility = "hidden"
+gameoverText.style.opacity = 0
+points = 0;
+pointText.textContent = points
+birdrotation = -20;
+pipeBottom1.style.right = 0 + "px"
+pipeTop1.style.right = 0 + "px"
+pipeBottom2.style.right = -300 + "px"
+rpos1 = 0;
+pipeTop2.style.right = -300 + "px"
+rpos2 = -300;
+}
+var muted = false;
+function mute() {
+  if(muted === false) {
+    music.volume = 0;
+    jumpAud.volume = 0;
+    muted = true;
+    mutebtn.textContent = "UNMUTE"
+    return
+  }
+  if(muted === true)
+   music.volume = 1
+   jumpAud.volume = 1
+   muted = false;
+   mutebtn.textContent = "MUTE"
+   return
 }

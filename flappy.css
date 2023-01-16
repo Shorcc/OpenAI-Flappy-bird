@@ -6,9 +6,11 @@ body {
     height: 400px;
     position: relative;
     background-color: #87CEEB;
+    background-image: url("back.png");
     margin: 50px auto;
     overflow: hidden;
     text-align: center;
+    
 
     
   }
@@ -18,7 +20,7 @@ body {
     height: 50px;
    /* background-color: #FFFF00; */
     position: absolute;
-    bottom: 100px;
+    
     left: 50px;
     transition: 75ms linear;
     background: url("flappy\ sprite.png");
@@ -71,7 +73,7 @@ body {
   #gameoverText {
     color: white;
     font-family: "pixelFont";
-    font-size:  10vw;
+    font-size:  120px;
     z-index: 1;
     opacity: 0;
     user-select: none;
@@ -102,4 +104,32 @@ body {
 @font-face {
   font-family: pixelFont;
   src: url("upheavtt.ttf");
+}
+@-webkit-keyframes scroll-left {
+  0% {
+      
+      background-position: -100%
+  }
+  100% {
+      background-position: 100%;
+  }
+}
+.scroll {
+  animation: scroll-left 15s linear infinite;
+}
+#mute {
+  height: 40px;
+  width: 85px ;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: "pixelFont";
+  border-width: 5px;
+  border-color: yellow;
+  background-color: yellow;
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px black;
+  user-select: none;
+ font-size: 20px;
 }

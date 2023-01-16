@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="flappy.css">
   </head>
   <body>
-    <div id="game-area">
+    <div id="game-area" class="scroll">
       <div id="bird"></div>
       <h1 id="point-counter">0</h1>
       <div class="pipe-bottom pipe" id="1bottom"></div>
@@ -13,8 +13,7 @@
       <div class="pipe-top pipe" id="top2"></div>
       <h1 id="gameoverText">Game<br> Over</h1>
       <button id="restartbtn" onclick="restart()">Restart</button>
-      
-      
+      <button id="mute" onclick="mute()">MUTE</button> 
     </div>
   </body>
   <script src="flappy.js"></script>
