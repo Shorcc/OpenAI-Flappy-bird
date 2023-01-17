@@ -1,81 +1,81 @@
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #game-area {
-    width: 500px;
-    height: 400px;
-    position: relative;
-    background-color: #87CEEB;
-    background-image: url("assets/back.png");
-    margin: 50px auto;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  #bird {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 50px;
-    transition: 75ms linear;
-    background: url("assets/flappy sprite.png");
-    background-position: center; 
-  }
+  width: 500px;
+  height: 400px;
+  position: relative;
+  background-color: #87ceeb;
+  background-image: url("assets/back.png");
+  margin: 50px auto;
+  overflow: hidden;
+  text-align: center;
+}
 
-  .pipe-top { 
-    width: 50px;
-    height: 110px;
-    position: absolute;
-    top: 0;
-    right: 0px;
-    background-color: #6bd303;
-    z-index: 0;
-    background-image: url("assets/pipe.png");
-    background-position: center -40px ;
-    background-repeat: no-repeat;
-    transform: scaleY(-1);
-    border-radius: 10px 10px 0px 0px;
-  }
-  .pipe-bottom {
-    width: 50px;
-    height: 110px;
-    background-color: #6bd303;
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    background-image: url("assets/pipe.png");
-    background-position: center -39px;
-    background-repeat: no-repeat;
-    border-radius: 10px 10px 0px 0px;
-  }
+#bird {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50px;
+  transition: 75ms linear;
+  background: url("assets/flappy sprite.png");
+  background-position: center;
+}
 
-  #point-counter {
-    color: white;
-    font-family: "pixelFont";
-    font-size: 50px;
-    left: 48%;
-    z-index: 1;
-    position: fixed;
-    user-select: none;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-  }
-  #gameoverText {
-    color: white;
-    font-family: "pixelFont";
-    font-size:  120px;
-    z-index: 1;
-    opacity: 0;
-    user-select: none;
-    position: relative;
-    -webkit-text-stroke-width: 4px;
-    -webkit-text-stroke-color: black;
-     pointer-events: none;
-  }
-  
+.pipe-top {
+  width: 50px;
+  height: 110px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #6bd303;
+  z-index: 0;
+  background-image: url("assets/pipe.png");
+  background-position: center -40px;
+  background-repeat: no-repeat;
+  transform: scaleY(-1);
+  border-radius: 10px 10px 0px 0px;
+}
+.pipe-bottom {
+  width: 50px;
+  height: 110px;
+  background-color: #6bd303;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-image: url("assets/pipe.png");
+  background-position: center -39px;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#point-counter {
+  color: white;
+  font-family: "pixelFont";
+  font-size: 50px;
+  left: 48%;
+  z-index: 1;
+  position: fixed;
+  user-select: none;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+#gameoverText {
+  color: white;
+  font-family: "pixelFont";
+  font-size: 120px;
+  z-index: 1;
+  opacity: 0;
+  user-select: none;
+  position: relative;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: black;
+  pointer-events: none;
+}
+
 #restartbtn {
- position: absolute;
+  position: absolute;
   height: 50px;
   width: 100px;
   top: 75%;
@@ -89,7 +89,7 @@ body {
   border-radius: 10px;
   box-shadow: 4px 4px 4px black;
   user-select: none;
- font-size: 20px;
+  font-size: 20px;
 }
 
 @font-face {
@@ -98,10 +98,10 @@ body {
 }
 @-webkit-keyframes scroll-left {
   0% {
-      background-position: -100%
+    background-position: -100%;
   }
   100% {
-      background-position: 100%;
+    background-position: 100%;
   }
 }
 
@@ -111,7 +111,7 @@ body {
 
 #mute {
   height: 40px;
-  width: 85px ;
+  width: 85px;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -123,5 +123,5 @@ body {
   border-radius: 10px;
   box-shadow: 2px 2px 4px black;
   user-select: none;
- font-size: 20px;
+  font-size: 20px;
 }
