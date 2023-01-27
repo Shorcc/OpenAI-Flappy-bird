@@ -234,3 +234,22 @@ function mute() {
   return;
 }
 var alive = true;
+function yellow() {
+  bird.style.backgroundImage = "url('assets/flappy sprite.png')"
+  console.log("yellow");
+}
+function red() {
+  bird.style.backgroundImage = "url('assets/flappy sprite red.png')"
+}
+function green() {
+  bird.style.backgroundImage = "url('assets/flappy sprite green.png')"
+}
+function blue() {
+  bird.style.backgroundImage = "url('assets/flappy sprite blue.png')"
+}
+function rainbow() {
+  bird.style.backgroundImage = "url('assets/flappy sprite rainbow.png')"
+}
+function purple() {
+  bird.style.backgroundImage = "url('assets/flappy sprite purple.png')"
+}
